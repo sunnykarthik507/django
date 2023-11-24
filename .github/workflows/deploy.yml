@@ -1,0 +1,22 @@
+name: Deploy to AWS
+on:
+  push:
+    branches:
+      - main
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+
+      - name: Deploy to AWS
+        run: |
+          scp -i ${{ secrets.AWS_PRIVATE_KEYS }} -r . ubuntu@ec2-51-20-129-103.eu-north-1.compute.amazonaws.com:/var/www/html/
+
+
+        env:
+          AWS_PRIVATE_KEY: ${{ secrets.AWS_PRIVATE_KEYS }}
