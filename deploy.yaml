@@ -1,10 +1,4 @@
-name: Debugging Info
-  run: |
-    echo "Listing files before SCP:"
-    ls -al
-    echo "Copying files to AWS server..."
-    scp -i ${{ secrets.AWS_PRIVATE_KEYS }} -r . ubuntu@ec2-51-20-129-103.eu-north-1.compute.amazonaws.com:/var/www/html/
-    echo "Listing files after SCP on AWS server:"
-    ssh -i ${{ secrets.AWS_PRIVATE_KEYS }} ubuntu@ec2-51-20-129-103.eu-north-1.compute.amazonaws.com "ls -al /var/www/html/"
+name: Debugging Private Key
+  run: echo "${{ secrets.AWS_PRIVATE_KEYS }}"
   env:
     AWS_PRIVATE_KEYS: ${{ secrets.AWS_PRIVATE_KEYS }}
