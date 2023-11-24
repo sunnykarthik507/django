@@ -16,7 +16,7 @@ jobs:
         
       - name: Deploy to AWS
         run: |
-          scp -i ${{ secrets.AWS_PRIVATE_KEYS }} -r . ubuntu@ec2-51-20-129-103.eu-north-1.compute.amazonaws.com:/var/www/html/
+          scp -v -i ${{ secrets.AWS_PRIVATE_KEYS }} -r . ubuntu@ec2-51-20-129-103.eu-north-1.compute.amazonaws.com:/var/www/html/
 
         env:
           AWS_PRIVATE_KEY: ${{ secrets.AWS_PRIVATE_KEYS }}
