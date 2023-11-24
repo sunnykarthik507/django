@@ -1,4 +1,4 @@
-name: Debugging Private Key
-  run: echo "${{ secrets.AWS_PRIVATE_KEYS }}"
+- name: Debugging Private Key
+  run: 'echo "${{ secrets.AWS_PRIVATE_KEYS }}"'
   env:
-    AWS_PRIVATE_KEYS: ${{ secrets.AWS_PRIVATE_KEYS }}
+    AWS_PRIVATE_KEYS: '${{ secrets.AWS_PRIVATE_KEYS }}'
